@@ -4,6 +4,7 @@ import PhotosUI
 struct TranslateView: View {
     @EnvironmentObject var store: StoreManager
     @ObservedObject var translationStore: TranslationStore
+    @State private var ambientPhase = false
     @State private var showCamera = false
     @State private var showImagePicker = false
     @State private var selectedPhoto: PhotosPickerItem?
@@ -50,7 +51,7 @@ struct TranslateView: View {
         }
         .sheet(isPresented: $showLanguagePicker) { languagePickerSheet }
         .sheet(isPresented: $showPaywall) { PaywallView().environmentObject(store) }
-        .onAppear { withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) { appeared = true } }
+        .onAppear { withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) { appeared = true } } ambientPhase = true;
     }
 
     private var headerSection: some View {
@@ -297,10 +298,25 @@ struct TranslateView: View {
 
     private var backgroundGlow: some View {
         ZStack {
-            Ellipse().fill(Color.appAccent.opacity(0.08)).frame(width: 350, height: 280).blur(radius: 80).offset(x: 60, y: -200)
-            Ellipse().fill(Color(hex: "F87171").opacity(0.04)).frame(width: 280, height: 220).blur(radius: 60).offset(x: -80, y: 100)
+            Color.appBG.ignoresSafeArea()
+            Ellipse()
+                .fill(Color.appAccent.opacity(0.15))
+                .frame(width: 380, height: 280).blur(radius: 80)
+                .offset(x: 60, y: -200).offset(y: ambientPhase ? 22 : -22)
+                .animation(.easeInOut(duration: 7).repeatForever(autoreverses: true), value: ambientPhase)
+            Ellipse()
+                .fill(Color(hex: "F87171").opacity(0.07))
+                .frame(width: 320, height: 220).blur(radius: 70)
+                .offset(x: -80, y: 120).offset(x: ambientPhase ? 18 : -18)
+                .animation(.easeInOut(duration: 5.5).repeatForever(autoreverses: true), value: ambientPhase)
+            Ellipse()
+                .fill(Color.appAccent.opacity(0.15).opacity(0.06))
+                .frame(width: 220, height: 160).blur(radius: 60)
+                .offset(x: 20, y: 340).scaleEffect(ambientPhase ? 1.25 : 1.0)
+                .animation(.easeInOut(duration: 6).repeatForever(autoreverses: true), value: ambientPhase)
         }
-        .ignoresSafeArea().allowsHitTesting(false)
+        .ignoresSafeArea()
+        .allowsHitTesting(false)
     }
 
     private var languagePickerSheet: some View {
