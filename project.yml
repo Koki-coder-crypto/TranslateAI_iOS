@@ -26,6 +26,16 @@ targets:
       path: ios_app/Info.plist
       properties:
         UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
         NSCameraUsageDescription: "TranslateAI needs camera access to capture text for translation."
         NSPhotoLibraryUsageDescription: "TranslateAI can translate text from your photo library."
         UIUserInterfaceStyle: Dark
