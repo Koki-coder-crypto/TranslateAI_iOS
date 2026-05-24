@@ -1,0 +1,5 @@
+Welcome to TranslateAI 1.0!
+• AI photo translation in 13+ languages
+• Auto language detection
+• Translation history
+• Camera & photo library support

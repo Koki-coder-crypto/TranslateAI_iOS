@@ -1,0 +1,24 @@
+TranslateAI - Photo Translator
+
+Point your camera at any text in the world and get an instant AI translation. Menus, signs, documents, handwriting — anything.
+
+INSTANT PHOTO TRANSLATION
+Capture any text with your camera and receive a complete, accurate translation powered by Claude AI in seconds.
+
+FEATURES
+• Camera and photo library capture
+• 13+ languages supported
+• Auto language detection
+• Full translation history
+• Copy translations to clipboard
+• Beautiful dark glass UI
+
+TRANSLATEAI PRO
+• Unlimited translations (free: 5/month)
+• Priority AI processing
+• Complete history
+• All languages
+
+Perfect for travel, studying foreign languages, reading imported documents, or understanding signs abroad.
+
+Privacy: Images are sent only for translation processing and are never stored.
